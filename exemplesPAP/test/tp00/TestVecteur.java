@@ -30,6 +30,7 @@ class TestVecteur {
 		assertEquals(9, TpVect.maxMinElem(v4, true));
 		assertThrows(AssertionError.class, () -> TpVect.maxMinElem(v3, true));
 	}
+
 	@Test
 	void testMaxMinElem2() {
 		assertEquals(30, TpVect.maxMinElem(v1, TypeMinMax.MAX));
@@ -39,5 +40,16 @@ class TestVecteur {
 		assertEquals(0, TpVect.maxMinElem(v2, TypeMinMax.MIN));
 		assertEquals(9, TpVect.maxMinElem(v4, TypeMinMax.MIN));
 		assertThrows(AssertionError.class, () -> TpVect.maxMinElem(v3, TypeMinMax.MIN));
+	}
+
+	@Test
+	void testMinMaxElem() {
+		int[] resV1 = { -100, 30 };
+		int[] resV2 = { 0, 22 };
+		int[] resV4 = { 9, 9 };
+		assertArrayEquals(resV1, TpVect.minMaxElem(v1));
+		assertArrayEquals(resV2, TpVect.minMaxElem(v2));
+		assertArrayEquals(resV4, TpVect.minMaxElem(v4));
+		assertThrows(AssertionError.class, () -> TpVect.minMaxElem(v3));
 	}
 }

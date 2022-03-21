@@ -58,7 +58,6 @@ public class TpVect {
 	 */
 	public static int maxMinElem(int[] v, boolean min) {
 		assert v.length > 0 : "Le vecteur doit avoir minimim 1 élément";
-
 		int res = v[0];
 		for (int i = 1; i < v.length; i++)
 			if (!min && res < v[i] || min && res > v[i])
@@ -76,6 +75,26 @@ public class TpVect {
 	 */
 	public static int maxMinElem(int[] v, TypeMinMax type) {
 		return maxMinElem(v, type == TypeMinMax.MIN);
+	}
+
+	/**
+	 * Retourne les valeurs minimum et maximum du vecteur
+	 * 
+	 * @param v
+	 * @return res[0] <- Minimum et res[1] <- Maximum
+	 */
+	public static int[] minMaxElem(int[] v) {
+		assert v.length > 0 : "Le vecteur doit avoir minimim 1 élément";
+		// res[0] ==> minimum ; res[1]==> maximum
+		int[] res = new int[2];
+		res[0] = v[0];
+		res[1] = v[0];
+		for (int i = 1; i < v.length; i++)
+			if (res[0] > v[i])// a-t-on un élément plus petit que mini
+				res[0] = v[i];
+			else if (res[1] < v[i])// a-t-on un élément plus grand que maxi
+				res[1] = v[i];
+		return res;
 	}
 
 	public static void main(String[] args) {
@@ -97,6 +116,9 @@ public class TpVect {
 		afficheVecteur(v2);
 		int[] v3 = { 9 };
 		afficheVecteur(v3);
+
+		int[] res = minMaxElem(v);
+		afficheVecteur(res);
 
 	}
 }
