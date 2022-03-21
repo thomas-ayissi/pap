@@ -86,9 +86,7 @@ public class TpVect {
 	public static int[] minMaxElem(int[] v) {
 		assert v.length > 0 : "Le vecteur doit avoir minimim 1 élément";
 		// res[0] ==> minimum ; res[1]==> maximum
-		int[] res = new int[2];
-		res[0] = v[0];
-		res[1] = v[0];
+		int[] res = { v[0], v[0] };
 		for (int i = 1; i < v.length; i++)
 			if (res[0] > v[i])// a-t-on un élément plus petit que mini
 				res[0] = v[i];
