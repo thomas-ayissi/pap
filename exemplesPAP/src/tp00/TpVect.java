@@ -1,7 +1,5 @@
 package tp00;
 
-import java.util.function.BooleanSupplier;
-
 public class TpVect {
 	// classe énumérée pour préciser un paramètre d'une fonction
 	public enum TypeMinMax {
@@ -97,6 +95,37 @@ public class TpVect {
 		return res;
 	}
 
+	/**
+	 * Vérifie si un texte est un palindrome
+	 * 
+	 * @param v
+	 * @return true si c'est un palindrome
+	 */
+	public static boolean estPalindrome(char[] v) {
+		assert v.length > 0 : "Le vecteur doit avoir minimim 1 élément";
+		int i = 0;
+		int j = v.length - 1;
+		while (i < j && v[i] == v[j]) {
+			i++;
+			j--;
+		}
+		return i >= j;
+	}
+/**
+ * retourne un copie inverse du vecteur v
+ * @param v le vecteur
+ * @return une copie du vecteur inversée
+ */
+	public static char[] copyInverse(char[] v) {
+		char[] res = new char[v.length];
+		int j = v.length - 1;
+		for (char elem : v) {
+			res[j] = elem;
+			j--;
+		}
+		return res;
+	}
+
 	public static void main(String[] args) {
 		int[] v = { 1, 2, 3, 5, 8, 13 };
 
@@ -119,11 +148,12 @@ public class TpVect {
 
 		int[] res = minMaxElem(v);
 		afficheVecteur(res);
+		System.out.println("====================");
+		char[] txt = { 'A', 'B' };
+		char[] inv = copyInverse(txt);
+		for (char c : inv)
+			System.out.print(c);
 
 	}
 
-	public static boolean estPalindrome(char[] v) {
-		// TODO Auto-generated method stub
-		return true;
-	}
 }

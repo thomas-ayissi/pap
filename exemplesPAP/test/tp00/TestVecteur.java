@@ -77,4 +77,18 @@ class TestVecteur {
 		assertThrows(AssertionError.class, () -> TpVect.estPalindrome(p0));
 	}
 
+	@Test
+	void testCopyInverse() {
+		char[] p0 = {};
+		char[] p1 = { 'A' };
+		char[] p2 = { 'A', 'B' };
+		char[] p3 = { 'A', 'V', 'X' };
+		char[] p2i = { 'B', 'A' };
+		char[] p3i = { 'X', 'V', 'A' };
+	
+		assertArrayEquals(p1, TpVect.copyInverse(p1));
+		assertArrayEquals(p2i, TpVect.copyInverse(p2));
+		assertArrayEquals(p3i, TpVect.copyInverse(p3));
+		assertArrayEquals(p0, TpVect.copyInverse(p0));
+	}
 }
