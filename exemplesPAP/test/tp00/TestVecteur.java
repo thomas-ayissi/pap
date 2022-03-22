@@ -52,4 +52,29 @@ class TestVecteur {
 		assertArrayEquals(resV4, TpVect.minMaxElem(v4));
 		assertThrows(AssertionError.class, () -> TpVect.minMaxElem(v3));
 	}
+
+	@Test
+	void testPalindrome() {
+		char[] p0 = {};
+		char[] p1 = { 'A' };
+		char[] p2 = { 'A', 'A' };
+		char[] p3 = { 'A', 'A', 'A' };
+		char[] p4 = { 'A', 'B' };
+		char[] p5 = { 'A', 'B', 'A' };
+		char[] p6 = { 'R', 'A', 'D', 'A', 'R' };
+		char[] p7 = { 'A', 'B', 'B', 'A' };
+		char[] p8 = { 'A', 'B', 'C', 'D', 'B', 'A' };
+		char[] p9 = { 'A', 'A', 'A', 'A', 'B' };
+		assertTrue(TpVect.estPalindrome(p1));
+		assertTrue(TpVect.estPalindrome(p2));
+		assertTrue(TpVect.estPalindrome(p3));
+		assertTrue(TpVect.estPalindrome(p5));
+		assertTrue(TpVect.estPalindrome(p6));
+		assertTrue(TpVect.estPalindrome(p7));
+		assertFalse(TpVect.estPalindrome(p4));
+		assertFalse(TpVect.estPalindrome(p8));
+		assertFalse(TpVect.estPalindrome(p9));
+		assertThrows(AssertionError.class, () -> TpVect.estPalindrome(p0));
+	}
+
 }

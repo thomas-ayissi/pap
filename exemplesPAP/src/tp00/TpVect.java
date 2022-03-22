@@ -1,5 +1,7 @@
 package tp00;
 
+import java.util.function.BooleanSupplier;
+
 public class TpVect {
 	// classe énumérée pour préciser un paramètre d'une fonction
 	public enum TypeMinMax {
@@ -118,5 +120,10 @@ public class TpVect {
 		int[] res = minMaxElem(v);
 		afficheVecteur(res);
 
+	}
+
+	public static boolean estPalindrome(char[] v) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
