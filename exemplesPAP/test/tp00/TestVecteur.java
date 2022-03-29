@@ -78,6 +78,30 @@ class TestVecteur {
 	}
 
 	@Test
+	void testPalindrome2() {
+		char[] p0 = {};
+		char[] p1 = { 'A' };
+		char[] p2 = { 'A', 'A' };
+		char[] p3 = { 'A', 'A', 'A' };
+		char[] p4 = { 'A', 'B' };
+		char[] p5 = { 'A', 'B', 'A' };
+		char[] p6 = { 'R', 'A', 'D', 'A', 'R' };
+		char[] p7 = { 'A', 'B', 'B', 'A' };
+		char[] p8 = { 'A', 'B', 'C', 'D', 'B', 'A' };
+		char[] p9 = { 'A', 'A', 'A', 'A', 'B' };
+		assertTrue(TpVect.estPalindrome2(p1));
+		assertTrue(TpVect.estPalindrome2(p2));
+		assertTrue(TpVect.estPalindrome2(p3));
+		assertTrue(TpVect.estPalindrome2(p5));
+		assertTrue(TpVect.estPalindrome2(p6));
+		assertTrue(TpVect.estPalindrome2(p7));
+		assertFalse(TpVect.estPalindrome2(p4));
+		assertFalse(TpVect.estPalindrome2(p8));
+		assertFalse(TpVect.estPalindrome2(p9));
+		assertThrows(AssertionError.class, () -> TpVect.estPalindrome2(p0));
+	}
+
+	@Test
 	void testCopyInverse() {
 		char[] p0 = {};
 		char[] p1 = { 'A' };
@@ -85,7 +109,7 @@ class TestVecteur {
 		char[] p3 = { 'A', 'V', 'X' };
 		char[] p2i = { 'B', 'A' };
 		char[] p3i = { 'X', 'V', 'A' };
-	
+
 		assertArrayEquals(p1, TpVect.copyInverse(p1));
 		assertArrayEquals(p2i, TpVect.copyInverse(p2));
 		assertArrayEquals(p3i, TpVect.copyInverse(p3));

@@ -117,11 +117,13 @@ public class MyMath {
 		}
 		return cpt;
 	}
-/**
- * Calcule le nombre de bytes pour coder ce caractère en UTF8
- * @param c le caractère
- * @return nombre de bytes
- */
+
+	/**
+	 * Calcule le nombre de bytes pour coder ce caractère en UTF8
+	 * 
+	 * @param c le caractère
+	 * @return nombre de bytes
+	 */
 	public static int nbBytesUtf8(char c) {
 		// Type casting pour avoir le code du caractère
 		int res;
@@ -133,6 +135,24 @@ public class MyMath {
 		else
 			res = 3;
 		return res;
+	}
+
+	/**
+	 * Vérifie si un nombre est premier
+	 * 
+	 * @param n entier >1
+	 * @return true si premier
+	 */
+	public static boolean estPremier(int n) {
+		assert n > 1 : "n doit être un entier positif >1";
+		boolean premier = n == 2 || n % 2 != 0;
+		int d = 3;
+		final int FIN = (int) Math.sqrt(n);
+		while (premier && d <= FIN) {
+			premier = n % d != 0;
+			d = d + 2;
+		}
+		return premier;
 	}
 
 	public static void main(String[] args) {

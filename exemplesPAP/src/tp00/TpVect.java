@@ -111,11 +111,13 @@ public class TpVect {
 		}
 		return i >= j;
 	}
-/**
- * retourne un copie inverse du vecteur v
- * @param v le vecteur
- * @return une copie du vecteur inversée
- */
+
+	/**
+	 * retourne un copie inverse du vecteur v ne modifie pas le vecteur v
+	 * 
+	 * @param v le vecteur
+	 * @return une copie du vecteur inversée
+	 */
 	public static char[] copyInverse(char[] v) {
 		char[] res = new char[v.length];
 		int j = v.length - 1;
@@ -124,6 +126,22 @@ public class TpVect {
 			j--;
 		}
 		return res;
+	}
+
+	/**
+	 * Vérifie si un texte est un palindrome
+	 * 
+	 * @param v
+	 * @return true si c'est un palindrome
+	 */
+	public static boolean estPalindrome2(char[] v) {
+		assert v.length > 0 : "Le vecteur doit avoir minimim 1 élément";
+		// Crée une copie inversée du vecteur V
+		char[] w = copyInverse(v);
+		int i = 0;
+		while (i < v.length - 1 && v[i] == w[i])
+			i++;
+		return v[i] == w[i];
 	}
 
 	public static void main(String[] args) {

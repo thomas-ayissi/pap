@@ -1,6 +1,5 @@
 package tp00;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -48,6 +47,7 @@ class TestMyMath {
 		assertEquals(8, MyMath.nbUn(255));
 		assertEquals(64, MyMath.nbUn(-1));
 	}
+
 	@Test
 	void testPower2() {
 		assertEquals(1.0, MyMath.power2(0.0, 0));
@@ -60,13 +60,26 @@ class TestMyMath {
 		assertEquals(2.5961484292674138E33, MyMath.power(2, 111));
 		assertThrows(AssertionError.class, () -> MyMath.power(0, -1));
 	}
-	
+
 	@Test
 	void testUtf8() {
 		assertEquals(1, MyMath.nbBytesUtf8('A'));
 		assertEquals(2, MyMath.nbBytesUtf8('é'));
 		assertEquals(3, MyMath.nbBytesUtf8('€'));
 	}
-	
+
+	@Test
+	void testPremier() {
+		assertEquals(true, MyMath.estPremier(2));
+		assertEquals(true, MyMath.estPremier(3));
+		assertEquals(true, MyMath.estPremier(5));
+		assertEquals(true, MyMath.estPremier(7));
+		assertEquals(true, MyMath.estPremier(11));
+		assertEquals(true, MyMath.estPremier(131));
+		assertEquals(false, MyMath.estPremier(4));
+		assertEquals(false, MyMath.estPremier(9));
+		assertEquals(false, MyMath.estPremier(25));
+		assertThrows(AssertionError.class, () -> MyMath.estPremier(1));
+	}
 
 }

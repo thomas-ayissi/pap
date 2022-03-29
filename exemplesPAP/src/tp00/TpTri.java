@@ -11,7 +11,8 @@ public class TpTri {
 	 */
 	public static void triInsertion(int[] v) {
 
-	
+	  //A changer et implémenter le tri par insertion
+		Arrays.sort(v);
 
 	}
 
