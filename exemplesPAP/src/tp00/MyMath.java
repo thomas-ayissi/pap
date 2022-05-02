@@ -12,7 +12,7 @@ public class MyMath {
 	/**
 	 * Calcule la factorielle de n
 	 * 
-	 * @param n entier positif
+	 * @param n entier positif <21
 	 * @return n!
 	 */
 	public static long factorielle(int n) {
@@ -86,7 +86,7 @@ public class MyMath {
 	}
 
 	/**
-	 * 
+	 * Calcul le PGCD selon Euclide
 	 * @param a un entier >0
 	 * @param b un entier >0
 	 * @return le pgcd de a et b
