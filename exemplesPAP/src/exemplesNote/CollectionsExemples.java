@@ -31,34 +31,40 @@ public class CollectionsExemples {
 		List<Integer> v = new ArrayList<>();
 		v.addAll(Arrays.asList(10, 4, -3, 9));
 		
-		//Test de différentes méthodes pour les notes
-		v.add(1, 99);
-		v.addAll(1, Arrays.asList(1, 2, 3));
-		v.remove(2);
-
-		v.remove((Integer) (-3));
+		//Ajout de nouveaux éléments
+		v.add(1, 99);//Ajoute un nouvel élément et décale les autres vers la droite
+		v.addAll(1, Arrays.asList(1, 2, 3));//Ajoute une liste d'éléments
+		//Suppression
+		v.remove(2);//retire l'élément d'indice 2
+		v.remove((Integer) (-3));//retire l'élément -3
+		v.removeIf(x -> x<5);//rétire les éléments répondant à une condition
 		
-		System.out.println(v.contains(9));
-		
+		//Vérifie si la liste contient un élément
+		System.out.println(v.contains(9)); 
+		//Récupère l'élément d'indice spécifié
 		System.out.println(v.get(0));
 		
+		//Remplace l'élément d'indice indiqué
 	    v.set(0, 55);
-		v.removeIf(x -> x<5);
 		
-		//Tri avec un compateur celui de Integer
-		v.sort(Integer::compare);
-		//Tri avec le comparateur par défaut de Integer
-		Collections.sort(v);
+		//Trier une liste
+		v.sort(Integer::compare);//Tri en spécifiant un compateur
+	
+		Collections.sort(v);//Tri avec le comparateur des éléments
 		System.out.println(v);
 		
 		//Création d'une sous-liste
 		v2 = v.subList(1, 3);
 		System.out.println(v2);
 
+		/* 
+		 * Parcourir une liste 
+		 */
 		// Parcourir une liste version classique
 		for (int i = 0; i < v.size(); i++)
 			System.out.print(v.get(i) + " , ");
 		System.out.println();
+		
 		// Parcourir avec une boucle "For each"
 		for (Integer elem : v)
 			System.out.print(elem + " , ");
@@ -93,9 +99,15 @@ public class CollectionsExemples {
 		// exclusion
 		e1.removeAll(ens2);
 		System.out.println(e1);
-		// Ajout d'un élément null
-		e1.add(null);
-
+		
+		// Ajout d'un élément (null est autorisé avec HashSet)
+		e1.add(64);
+		//Retire l'élément
+		e1.remove(64);
+		
+		/*
+		 * Parcourir une liste
+		 */
 		// Parcourir avec ForEach
 		for (Integer e : e2) {
 			System.out.print(e + ",");
@@ -124,9 +136,21 @@ public class CollectionsExemples {
 
 		// Map modifiable
 		Map<Integer, String> codesHttp3 = new HashMap<>();
+		
+		//Ajouter des éléments
 		codesHttp3.put(200, "Succès");
 		codesHttp3.put(301, "Indirection");
 		codesHttp3.put(404, "Ressource non trouvée");
+		
+		//Récupérer un élément
+		String res1=codesHttp1.get(200);
+		System.out.println(res1);
+		  //Si la clé n'existe pas fourni une valeur par défaut
+		String res2=codesHttp1.getOrDefault(007, "James");
+		System.out.println(res2);
+		
+		//Remplacer un élément existant
+		codesHttp1.replace(200, "Tout va bien");
 
 		// Ensemble des clés
 		System.out.println(codesHttp3.keySet());
